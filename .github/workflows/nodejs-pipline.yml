@@ -1,0 +1,27 @@
+name: nodejs pipline
+
+on:
+    push:
+        branches:
+            - main
+
+
+jobs: 
+    build:
+        runs-on: Ubuntu-latest
+
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Setup node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18.x
+
+            - name: install dependencies with npm
+              run: npm install
+
+
+
